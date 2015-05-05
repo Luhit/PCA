@@ -1,7 +1,4 @@
 %Main
-close all
-clear all
-clc
 while (1)
     choice=menu('Face Recognition System',...
                 'Create Database of Faces',...
@@ -14,21 +11,21 @@ while (1)
         lps_CreateDatabase;
     end
     
-    if (choice == 2)
+    if (choice ==2)
         lps_DeleteDatabase;
     end
     
     if (choice ==3)
         [m, A, Eigenfaces]=lps_Trainit;
     end
-    if (choice == 4)
+    if (choice ==4)
         if exist('train.mat');
             load train;
         end
         lps_FaceRec(m, A, Eigenfaces);
     end
    
-    if (choice == 5)
+    if (choice ==5)
         clear all;
         clc;
         close all;

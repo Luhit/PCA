@@ -2,24 +2,16 @@ function [ OutputName ] = lps_FaceRec(m, A, Eigenfaces)
 cd Test;
 while (1)
     choice=menu('Face Recognition',...
-                'Input Image From File',...
                 'Capture Now',...
                 'Recognition',...
                 'Exit');
+    
     if (choice ==1)
-       try cd Test;close all; end; 
-         ChooseFile = imgetfile;
-         capcha = imread(ChooseFile);
-         %capcha = imcrop(capcha,[180,20,280,380]);
-         imshow(capcha);
-         lps_saveimage(capcha);
-    end
-    if (choice == 2)
         try cd Test;close all; end;
         lps_capturenow;
 
     end    
-    if (choice == 3)
+    if (choice ==2)
        OutputName=lps_Recognition(m, A, Eigenfaces);
        n=((OutputName+1)/2);
        
@@ -33,13 +25,14 @@ while (1)
     subplot(122),imshow(SelectedImage);
     title('Equivalent Image');
        disp('Student No');
+       number=int2str(n);
        disp(int2str(n));
-       
+       lps_door(number);
     end
      
-   if (choice == 4) 
-       clc; 
-       close all;
+   if (choice ==3) 
+       
+       
        return;
     end    
 end
